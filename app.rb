@@ -11,7 +11,33 @@ end
 class Barber < ActiveRecord::Base
 end
 
-get '/' do 
-  @barbers = Barber.order "created_at DESC"
+before do
+  @barbers = Barber.all 
+end
+
+get '/' do  
   erb :index
 end
+
+get '/visit' do
+  erb :visit
+end
+
+post '/visit' do
+  @username = params[:username]
+  @phone = params[:phone]
+  @datetime = params[:datetime]
+  @barber = params[:barber]
+  @colorpicker = params[:colorpicker]
+
+  c = Client.new
+  c.name = @username
+  c.phone = @phone
+  c.datestamp = @datetime
+  c.barber = @barber
+  c.color = @colorpicker
+  c.save
+
+  erb "Tnks!"
+end
+
