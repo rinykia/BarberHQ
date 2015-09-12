@@ -44,3 +44,8 @@ get '/barber/:id' do
   erb :barber
 end
 
+get '/bookings' do
+  @clients = Client.all.order('created_at DESC')
+  erb :bookings
+end
+
