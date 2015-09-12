@@ -6,9 +6,9 @@ class CreateBarbers < ActiveRecord::Migration
   	  t.timestamps
   	end
 
-  	#Barber.create :name => 'Kelly Red'
-  	#Barber.create :name => 'Bob FOLLY'
-  	#Barber.create :name => 'Nemo Green'
-  	#Barber.create :name => 'Mile Gef'
+  	Barber.create :name => 'Kelly Red'
+  	Barber.create :name => 'Bob FOLLY'
+  	Barber.create :name => 'Nemo Green'
+  	Barber.create :name => 'Mile Gef'
   end
 end
